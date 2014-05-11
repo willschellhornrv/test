@@ -1,0 +1,106 @@
+|test
+LEDR[0] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[8] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[9] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDG <= rom_out.DB_MAX_OUTPUT_PORT_TYPE
+HEX_out[0] <= sevsegdriver:john.port0
+HEX_out[1] <= sevsegdriver:john.port0
+HEX_out[2] <= sevsegdriver:john.port0
+HEX_out[3] <= sevsegdriver:john.port0
+HEX_out[4] <= sevsegdriver:john.port0
+HEX_out[5] <= sevsegdriver:john.port0
+HEX_out[6] <= sevsegdriver:john.port0
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
+SW[9] => SW[9].IN1
+other_displays <= <GND>
+LEDG2 <= push_butt.DB_MAX_OUTPUT_PORT_TYPE
+push_butt => state_counter[0].CLK
+push_butt => state_counter[1].CLK
+push_butt => out_second_prime[0].CLK
+push_butt => out_second_prime[1].CLK
+push_butt => out_second_prime[2].CLK
+push_butt => out_second_prime[3].CLK
+push_butt => out_second_prime[4].CLK
+push_butt => out_second_prime[5].CLK
+push_butt => out_second_prime[6].CLK
+push_butt => out_second_prime[7].CLK
+push_butt => out_second_prime[8].CLK
+push_butt => out_second_prime[9].CLK
+push_butt => out_first_prime[0].CLK
+push_butt => out_first_prime[1].CLK
+push_butt => out_first_prime[2].CLK
+push_butt => out_first_prime[3].CLK
+push_butt => out_first_prime[4].CLK
+push_butt => out_first_prime[5].CLK
+push_butt => out_first_prime[6].CLK
+push_butt => out_first_prime[7].CLK
+push_butt => out_first_prime[8].CLK
+push_butt => out_first_prime[9].CLK
+push_butt => prime1[0].CLK
+push_butt => prime1[1].CLK
+push_butt => prime1[2].CLK
+push_butt => prime1[3].CLK
+push_butt => prime1[4].CLK
+push_butt => prime1[5].CLK
+push_butt => prime1[6].CLK
+push_butt => prime1[7].CLK
+push_butt => prime1[8].CLK
+push_butt => prime1[9].CLK
+push_butt => prime0[0].CLK
+push_butt => prime0[1].CLK
+push_butt => prime0[2].CLK
+push_butt => prime0[3].CLK
+push_butt => prime0[4].CLK
+push_butt => prime0[5].CLK
+push_butt => prime0[6].CLK
+push_butt => prime0[7].CLK
+push_butt => prime0[8].CLK
+push_butt => prime0[9].CLK
+push_butt => LEDG2.DATAIN
+state[0] <= state_counter[0].DB_MAX_OUTPUT_PORT_TYPE
+state[1] <= state_counter[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|test|rom_file:bob
+out <= Ram0.DATAOUT
+address[0] => Ram0.RADDR
+address[1] => Ram0.RADDR1
+address[2] => Ram0.RADDR2
+address[3] => Ram0.RADDR3
+address[4] => Ram0.RADDR4
+address[5] => Ram0.RADDR5
+address[6] => Ram0.RADDR6
+address[7] => Ram0.RADDR7
+address[8] => Ram0.RADDR8
+address[9] => Ram0.RADDR9
+
+
+|test|sevsegdriver:john
+hex_out[0] <= prime.DB_MAX_OUTPUT_PORT_TYPE
+hex_out[1] <= <GND>
+hex_out[2] <= <GND>
+hex_out[3] <= prime.DB_MAX_OUTPUT_PORT_TYPE
+hex_out[4] <= prime.DB_MAX_OUTPUT_PORT_TYPE
+hex_out[5] <= <GND>
+hex_out[6] <= prime.DB_MAX_OUTPUT_PORT_TYPE
+prime => hex_out[6].DATAIN
+prime => hex_out[4].DATAIN
+prime => hex_out[3].DATAIN
+prime => hex_out[0].DATAIN
+
+

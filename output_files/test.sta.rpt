@@ -1,0 +1,1629 @@
+TimeQuest Timing Analyzer report for test
+Sun May 11 13:49:42 2014
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'push_butt'
+ 12. Slow Model Hold: 'push_butt'
+ 13. Slow Model Minimum Pulse Width: 'push_butt'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Propagation Delay
+ 19. Minimum Propagation Delay
+ 20. Fast Model Setup Summary
+ 21. Fast Model Hold Summary
+ 22. Fast Model Recovery Summary
+ 23. Fast Model Removal Summary
+ 24. Fast Model Minimum Pulse Width Summary
+ 25. Fast Model Setup: 'push_butt'
+ 26. Fast Model Hold: 'push_butt'
+ 27. Fast Model Minimum Pulse Width: 'push_butt'
+ 28. Setup Times
+ 29. Hold Times
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Propagation Delay
+ 33. Minimum Propagation Delay
+ 34. Multicorner Timing Analysis Summary
+ 35. Setup Times
+ 36. Hold Times
+ 37. Clock to Output Times
+ 38. Minimum Clock to Output Times
+ 39. Progagation Delay
+ 40. Minimum Progagation Delay
+ 41. Setup Transfers
+ 42. Hold Transfers
+ 43. Report TCCS
+ 44. Report RSKM
+ 45. Unconstrained Paths
+ 46. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name      ; test                                               ;
+; Device Family      ; Cyclone II                                         ;
+; Device Name        ; EP2C20F484C7                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets       ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
+; push_butt  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { push_butt } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                   ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 406.67 MHz ; 405.02 MHz      ; push_butt  ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow Model Setup Summary           ;
++-----------+--------+---------------+
+; Clock     ; Slack  ; End Point TNS ;
++-----------+--------+---------------+
+; push_butt ; -1.459 ; -46.698       ;
++-----------+--------+---------------+
+
+
++-----------------------------------+
+; Slow Model Hold Summary           ;
++-----------+-------+---------------+
+; Clock     ; Slack ; End Point TNS ;
++-----------+-------+---------------+
+; push_butt ; 0.445 ; 0.000         ;
++-----------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-----------+--------+-------------------+
+; Clock     ; Slack  ; End Point TNS     ;
++-----------+--------+-------------------+
+; push_butt ; -1.469 ; -52.793           ;
++-----------+--------+-------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'push_butt'                                                                                         ;
++--------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -1.459 ; state_counter[0] ; prime0[0]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[1]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[2]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[3]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[4]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[5]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[6]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[7]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[8]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.459 ; state_counter[0] ; prime0[9]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.489      ;
+; -1.315 ; state_counter[1] ; prime0[0]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[1]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[2]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[3]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[4]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[5]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[6]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[7]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[8]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.315 ; state_counter[1] ; prime0[9]           ; push_butt    ; push_butt   ; 1.000        ; -0.008     ; 2.345      ;
+; -1.205 ; state_counter[1] ; out_second_prime[0] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.205 ; state_counter[1] ; out_second_prime[1] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.205 ; state_counter[1] ; out_second_prime[2] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.205 ; state_counter[1] ; out_second_prime[3] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.205 ; state_counter[1] ; out_second_prime[4] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.205 ; state_counter[1] ; out_second_prime[5] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.205 ; state_counter[1] ; out_second_prime[6] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.205 ; state_counter[1] ; out_second_prime[7] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.242      ;
+; -1.191 ; state_counter[1] ; out_second_prime[8] ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 2.253      ;
+; -1.191 ; state_counter[1] ; out_second_prime[9] ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 2.253      ;
+; -1.110 ; state_counter[1] ; prime1[0]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[1]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[2]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[3]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[4]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[5]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[6]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[7]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[8]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.110 ; state_counter[1] ; prime1[9]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 2.151      ;
+; -1.071 ; state_counter[0] ; out_second_prime[0] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.071 ; state_counter[0] ; out_second_prime[1] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.071 ; state_counter[0] ; out_second_prime[2] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.071 ; state_counter[0] ; out_second_prime[3] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.071 ; state_counter[0] ; out_second_prime[4] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.071 ; state_counter[0] ; out_second_prime[5] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.071 ; state_counter[0] ; out_second_prime[6] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.071 ; state_counter[0] ; out_second_prime[7] ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 2.108      ;
+; -1.057 ; state_counter[0] ; out_second_prime[8] ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 2.119      ;
+; -1.057 ; state_counter[0] ; out_second_prime[9] ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 2.119      ;
+; -0.912 ; state_counter[1] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.912 ; state_counter[1] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.912 ; state_counter[1] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.912 ; state_counter[1] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.912 ; state_counter[1] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.912 ; state_counter[1] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.912 ; state_counter[1] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.912 ; state_counter[1] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.949      ;
+; -0.845 ; state_counter[1] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 1.907      ;
+; -0.845 ; state_counter[1] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 1.907      ;
+; -0.826 ; state_counter[0] ; prime1[0]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[1]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[2]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[3]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[4]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[5]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[6]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[7]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[8]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.826 ; state_counter[0] ; prime1[9]           ; push_butt    ; push_butt   ; 1.000        ; 0.003      ; 1.867      ;
+; -0.549 ; state_counter[0] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 1.611      ;
+; -0.548 ; state_counter[0] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 1.000        ; 0.024      ; 1.610      ;
+; -0.516 ; prime1[5]        ; out_second_prime[5] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.550      ;
+; -0.508 ; state_counter[0] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.545      ;
+; -0.508 ; state_counter[0] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.545      ;
+; -0.507 ; state_counter[0] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.544      ;
+; -0.506 ; state_counter[0] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.543      ;
+; -0.505 ; state_counter[0] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.542      ;
+; -0.505 ; state_counter[0] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.542      ;
+; -0.503 ; state_counter[0] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.540      ;
+; -0.502 ; state_counter[0] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 1.000        ; -0.001     ; 1.539      ;
+; -0.496 ; prime1[7]        ; out_second_prime[7] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.530      ;
+; -0.488 ; prime1[4]        ; out_second_prime[4] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.522      ;
+; -0.413 ; prime0[4]        ; out_first_prime[4]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.458      ;
+; -0.408 ; prime0[2]        ; out_first_prime[2]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.453      ;
+; -0.401 ; prime0[1]        ; out_first_prime[1]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.446      ;
+; -0.370 ; prime0[5]        ; out_first_prime[5]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.415      ;
+; -0.368 ; prime0[0]        ; out_first_prime[0]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.413      ;
+; -0.362 ; prime0[7]        ; out_first_prime[7]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.407      ;
+; -0.359 ; prime0[3]        ; out_first_prime[3]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.404      ;
+; -0.359 ; prime0[6]        ; out_first_prime[6]  ; push_butt    ; push_butt   ; 1.000        ; 0.007      ; 1.404      ;
+; -0.273 ; prime1[9]        ; out_second_prime[9] ; push_butt    ; push_butt   ; 1.000        ; 0.021      ; 1.332      ;
+; -0.256 ; prime1[6]        ; out_second_prime[6] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.290      ;
+; -0.254 ; prime1[3]        ; out_second_prime[3] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.288      ;
+; -0.247 ; prime1[0]        ; out_second_prime[0] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.281      ;
+; -0.246 ; prime1[1]        ; out_second_prime[1] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.280      ;
+; -0.245 ; prime1[2]        ; out_second_prime[2] ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 1.279      ;
+; -0.164 ; prime1[8]        ; out_second_prime[8] ; push_butt    ; push_butt   ; 1.000        ; 0.021      ; 1.223      ;
+; -0.076 ; prime0[8]        ; out_first_prime[8]  ; push_butt    ; push_butt   ; 1.000        ; 0.032      ; 1.146      ;
+; -0.033 ; prime0[9]        ; out_first_prime[9]  ; push_butt    ; push_butt   ; 1.000        ; 0.032      ; 1.103      ;
++--------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'push_butt'                                                                                         ;
++-------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; state_counter[0] ; state_counter[0]    ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; state_counter[1] ; state_counter[1]    ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.731      ;
+; 0.657 ; state_counter[0] ; state_counter[1]    ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.943      ;
+; 0.785 ; prime0[9]        ; out_first_prime[9]  ; push_butt    ; push_butt   ; 0.000        ; 0.032      ; 1.103      ;
+; 0.828 ; prime0[8]        ; out_first_prime[8]  ; push_butt    ; push_butt   ; 0.000        ; 0.032      ; 1.146      ;
+; 0.916 ; prime1[8]        ; out_second_prime[8] ; push_butt    ; push_butt   ; 0.000        ; 0.021      ; 1.223      ;
+; 0.997 ; prime1[2]        ; out_second_prime[2] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.279      ;
+; 0.998 ; prime1[1]        ; out_second_prime[1] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.280      ;
+; 0.999 ; prime1[0]        ; out_second_prime[0] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.281      ;
+; 1.006 ; prime1[3]        ; out_second_prime[3] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.288      ;
+; 1.008 ; prime1[6]        ; out_second_prime[6] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.290      ;
+; 1.025 ; prime1[9]        ; out_second_prime[9] ; push_butt    ; push_butt   ; 0.000        ; 0.021      ; 1.332      ;
+; 1.111 ; prime0[3]        ; out_first_prime[3]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.404      ;
+; 1.111 ; prime0[6]        ; out_first_prime[6]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.404      ;
+; 1.114 ; prime0[7]        ; out_first_prime[7]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.407      ;
+; 1.120 ; prime0[0]        ; out_first_prime[0]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.413      ;
+; 1.122 ; prime0[5]        ; out_first_prime[5]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.415      ;
+; 1.153 ; prime0[1]        ; out_first_prime[1]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.446      ;
+; 1.160 ; prime0[2]        ; out_first_prime[2]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.453      ;
+; 1.165 ; prime0[4]        ; out_first_prime[4]  ; push_butt    ; push_butt   ; 0.000        ; 0.007      ; 1.458      ;
+; 1.240 ; prime1[4]        ; out_second_prime[4] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.522      ;
+; 1.248 ; prime1[7]        ; out_second_prime[7] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.530      ;
+; 1.254 ; state_counter[0] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.539      ;
+; 1.255 ; state_counter[0] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.540      ;
+; 1.257 ; state_counter[0] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.542      ;
+; 1.257 ; state_counter[0] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.542      ;
+; 1.258 ; state_counter[0] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.543      ;
+; 1.259 ; state_counter[0] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.544      ;
+; 1.260 ; state_counter[0] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.545      ;
+; 1.260 ; state_counter[0] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.545      ;
+; 1.268 ; prime1[5]        ; out_second_prime[5] ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 1.550      ;
+; 1.300 ; state_counter[0] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 1.610      ;
+; 1.301 ; state_counter[0] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 1.611      ;
+; 1.355 ; state_counter[1] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.640      ;
+; 1.355 ; state_counter[1] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.640      ;
+; 1.356 ; state_counter[1] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.641      ;
+; 1.357 ; state_counter[1] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.642      ;
+; 1.361 ; state_counter[1] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.646      ;
+; 1.362 ; state_counter[1] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.647      ;
+; 1.362 ; state_counter[1] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.647      ;
+; 1.364 ; state_counter[1] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 1.649      ;
+; 1.489 ; state_counter[1] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 1.799      ;
+; 1.490 ; state_counter[1] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 1.800      ;
+; 1.578 ; state_counter[0] ; prime1[0]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[1]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[2]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[3]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[4]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[5]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[6]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[7]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[8]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.578 ; state_counter[0] ; prime1[9]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 1.867      ;
+; 1.809 ; state_counter[0] ; out_second_prime[8] ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 2.119      ;
+; 1.809 ; state_counter[0] ; out_second_prime[9] ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 2.119      ;
+; 1.823 ; state_counter[0] ; out_second_prime[0] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.823 ; state_counter[0] ; out_second_prime[1] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.823 ; state_counter[0] ; out_second_prime[2] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.823 ; state_counter[0] ; out_second_prime[3] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.823 ; state_counter[0] ; out_second_prime[4] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.823 ; state_counter[0] ; out_second_prime[5] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.823 ; state_counter[0] ; out_second_prime[6] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.823 ; state_counter[0] ; out_second_prime[7] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.108      ;
+; 1.862 ; state_counter[1] ; prime1[0]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[1]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[2]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[3]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[4]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[5]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[6]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[7]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[8]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.862 ; state_counter[1] ; prime1[9]           ; push_butt    ; push_butt   ; 0.000        ; 0.003      ; 2.151      ;
+; 1.943 ; state_counter[1] ; out_second_prime[8] ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 2.253      ;
+; 1.943 ; state_counter[1] ; out_second_prime[9] ; push_butt    ; push_butt   ; 0.000        ; 0.024      ; 2.253      ;
+; 1.957 ; state_counter[1] ; out_second_prime[0] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 1.957 ; state_counter[1] ; out_second_prime[1] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 1.957 ; state_counter[1] ; out_second_prime[2] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 1.957 ; state_counter[1] ; out_second_prime[3] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 1.957 ; state_counter[1] ; out_second_prime[4] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 1.957 ; state_counter[1] ; out_second_prime[5] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 1.957 ; state_counter[1] ; out_second_prime[6] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 1.957 ; state_counter[1] ; out_second_prime[7] ; push_butt    ; push_butt   ; 0.000        ; -0.001     ; 2.242      ;
+; 2.067 ; state_counter[1] ; prime0[0]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[1]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[2]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[3]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[4]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[5]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[6]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[7]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[8]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.067 ; state_counter[1] ; prime0[9]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.345      ;
+; 2.211 ; state_counter[0] ; prime0[0]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.489      ;
+; 2.211 ; state_counter[0] ; prime0[1]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.489      ;
+; 2.211 ; state_counter[0] ; prime0[2]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.489      ;
+; 2.211 ; state_counter[0] ; prime0[3]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.489      ;
+; 2.211 ; state_counter[0] ; prime0[4]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.489      ;
+; 2.211 ; state_counter[0] ; prime0[5]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.489      ;
+; 2.211 ; state_counter[0] ; prime0[6]           ; push_butt    ; push_butt   ; 0.000        ; -0.008     ; 2.489      ;
++-------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'push_butt'                                                                 ;
++--------+--------------+----------------+------------------+-----------+------------+------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock     ; Clock Edge ; Target                 ;
++--------+--------------+----------------+------------------+-----------+------------+------------------------+
+; -1.469 ; 1.000        ; 2.469          ; Port Rate        ; push_butt ; Rise       ; push_butt              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[0]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[0]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[1]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[1]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[2]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[2]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[3]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[3]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[4]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[4]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[5]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[5]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[6]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[6]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[7]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[7]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[8]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[8]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[9]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[9]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[0]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[0]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[1]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[1]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[2]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[2]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[3]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[3]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[4]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[4]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[5]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[5]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[6]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[6]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[7]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[7]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[8]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[8]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[9]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[9]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[0]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[0]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[1]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[1]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[2]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[2]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[3]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[3]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[4]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[4]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[5]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[5]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[6]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[6]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[7]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[7]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[8]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[8]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime0[9]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[9]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[0]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[0]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[1]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[1]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[2]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[2]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[3]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[3]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[4]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[4]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[5]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[5]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[6]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[6]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[7]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[7]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[8]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[8]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; prime1[9]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[9]              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; state_counter[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; state_counter[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; push_butt ; Fall       ; state_counter[1]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; push_butt ; Fall       ; state_counter[1]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[0]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[0]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[1]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[1]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[2]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[2]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[3]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[3]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[4]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[4]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[5]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[5]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[6]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[6]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[7]|clk ;
++--------+--------------+----------------+------------------+-----------+------------+------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; push_butt  ; 1.257 ; 1.257 ; Fall       ; push_butt       ;
+;  SW[0]    ; push_butt  ; 0.809 ; 0.809 ; Fall       ; push_butt       ;
+;  SW[1]    ; push_butt  ; 0.955 ; 0.955 ; Fall       ; push_butt       ;
+;  SW[2]    ; push_butt  ; 0.557 ; 0.557 ; Fall       ; push_butt       ;
+;  SW[3]    ; push_butt  ; 0.912 ; 0.912 ; Fall       ; push_butt       ;
+;  SW[4]    ; push_butt  ; 0.831 ; 0.831 ; Fall       ; push_butt       ;
+;  SW[5]    ; push_butt  ; 0.771 ; 0.771 ; Fall       ; push_butt       ;
+;  SW[6]    ; push_butt  ; 0.702 ; 0.702 ; Fall       ; push_butt       ;
+;  SW[7]    ; push_butt  ; 0.829 ; 0.829 ; Fall       ; push_butt       ;
+;  SW[8]    ; push_butt  ; 1.257 ; 1.257 ; Fall       ; push_butt       ;
+;  SW[9]    ; push_butt  ; 1.063 ; 1.063 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; push_butt  ; 0.095  ; 0.095  ; Fall       ; push_butt       ;
+;  SW[0]    ; push_butt  ; -0.180 ; -0.180 ; Fall       ; push_butt       ;
+;  SW[1]    ; push_butt  ; 0.095  ; 0.095  ; Fall       ; push_butt       ;
+;  SW[2]    ; push_butt  ; 0.084  ; 0.084  ; Fall       ; push_butt       ;
+;  SW[3]    ; push_butt  ; -0.361 ; -0.361 ; Fall       ; push_butt       ;
+;  SW[4]    ; push_butt  ; -0.448 ; -0.448 ; Fall       ; push_butt       ;
+;  SW[5]    ; push_butt  ; -0.396 ; -0.396 ; Fall       ; push_butt       ;
+;  SW[6]    ; push_butt  ; -0.357 ; -0.357 ; Fall       ; push_butt       ;
+;  SW[7]    ; push_butt  ; -0.325 ; -0.325 ; Fall       ; push_butt       ;
+;  SW[8]    ; push_butt  ; -0.615 ; -0.615 ; Fall       ; push_butt       ;
+;  SW[9]    ; push_butt  ; -0.797 ; -0.797 ; Fall       ; push_butt       ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG2     ; push_butt  ; 8.876 ; 8.876 ; Rise       ; push_butt       ;
+; LEDG2     ; push_butt  ; 8.876 ; 8.876 ; Fall       ; push_butt       ;
+; LEDR[*]   ; push_butt  ; 7.778 ; 7.778 ; Fall       ; push_butt       ;
+;  LEDR[0]  ; push_butt  ; 7.283 ; 7.283 ; Fall       ; push_butt       ;
+;  LEDR[1]  ; push_butt  ; 7.238 ; 7.238 ; Fall       ; push_butt       ;
+;  LEDR[2]  ; push_butt  ; 7.778 ; 7.778 ; Fall       ; push_butt       ;
+;  LEDR[3]  ; push_butt  ; 7.424 ; 7.424 ; Fall       ; push_butt       ;
+;  LEDR[4]  ; push_butt  ; 7.564 ; 7.564 ; Fall       ; push_butt       ;
+;  LEDR[5]  ; push_butt  ; 7.416 ; 7.416 ; Fall       ; push_butt       ;
+;  LEDR[6]  ; push_butt  ; 7.399 ; 7.399 ; Fall       ; push_butt       ;
+;  LEDR[7]  ; push_butt  ; 7.547 ; 7.547 ; Fall       ; push_butt       ;
+;  LEDR[8]  ; push_butt  ; 6.985 ; 6.985 ; Fall       ; push_butt       ;
+;  LEDR[9]  ; push_butt  ; 7.294 ; 7.294 ; Fall       ; push_butt       ;
+; state[*]  ; push_butt  ; 6.877 ; 6.877 ; Fall       ; push_butt       ;
+;  state[0] ; push_butt  ; 6.877 ; 6.877 ; Fall       ; push_butt       ;
+;  state[1] ; push_butt  ; 6.875 ; 6.875 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG2     ; push_butt  ; 8.876 ; 8.876 ; Rise       ; push_butt       ;
+; LEDG2     ; push_butt  ; 8.876 ; 8.876 ; Fall       ; push_butt       ;
+; LEDR[*]   ; push_butt  ; 6.715 ; 6.715 ; Fall       ; push_butt       ;
+;  LEDR[0]  ; push_butt  ; 6.767 ; 6.767 ; Fall       ; push_butt       ;
+;  LEDR[1]  ; push_butt  ; 6.715 ; 6.715 ; Fall       ; push_butt       ;
+;  LEDR[2]  ; push_butt  ; 7.253 ; 7.253 ; Fall       ; push_butt       ;
+;  LEDR[3]  ; push_butt  ; 7.251 ; 7.251 ; Fall       ; push_butt       ;
+;  LEDR[4]  ; push_butt  ; 7.390 ; 7.390 ; Fall       ; push_butt       ;
+;  LEDR[5]  ; push_butt  ; 7.244 ; 7.244 ; Fall       ; push_butt       ;
+;  LEDR[6]  ; push_butt  ; 7.221 ; 7.221 ; Fall       ; push_butt       ;
+;  LEDR[7]  ; push_butt  ; 7.376 ; 7.376 ; Fall       ; push_butt       ;
+;  LEDR[8]  ; push_butt  ; 6.809 ; 6.809 ; Fall       ; push_butt       ;
+;  LEDR[9]  ; push_butt  ; 7.116 ; 7.116 ; Fall       ; push_butt       ;
+; state[*]  ; push_butt  ; 6.875 ; 6.875 ; Fall       ; push_butt       ;
+;  state[0] ; push_butt  ; 6.877 ; 6.877 ; Fall       ; push_butt       ;
+;  state[1] ; push_butt  ; 6.875 ; 6.875 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------+
+; Propagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; SW[0]      ; HEX_out[0]  ; 11.598 ; 13.001 ; 13.001 ; 11.598 ;
+; SW[0]      ; HEX_out[3]  ; 13.019 ; 11.616 ; 11.616 ; 13.019 ;
+; SW[0]      ; HEX_out[4]  ; 11.285 ; 12.688 ; 12.688 ; 11.285 ;
+; SW[0]      ; HEX_out[6]  ; 12.688 ; 11.285 ; 11.285 ; 12.688 ;
+; SW[0]      ; LEDG        ; 7.806  ; 9.209  ; 9.209  ; 7.806  ;
+; SW[0]      ; LEDR[0]     ; 6.919  ;        ;        ; 6.919  ;
+; SW[1]      ; HEX_out[0]  ; 16.074 ; 16.074 ; 16.074 ; 16.074 ;
+; SW[1]      ; HEX_out[3]  ; 16.092 ; 16.092 ; 16.092 ; 16.092 ;
+; SW[1]      ; HEX_out[4]  ; 15.761 ; 15.761 ; 15.761 ; 15.761 ;
+; SW[1]      ; HEX_out[6]  ; 15.761 ; 15.761 ; 15.761 ; 15.761 ;
+; SW[1]      ; LEDG        ; 12.282 ; 12.282 ; 12.282 ; 12.282 ;
+; SW[1]      ; LEDR[1]     ; 6.794  ;        ;        ; 6.794  ;
+; SW[2]      ; HEX_out[0]  ; 15.811 ; 15.811 ; 15.811 ; 15.811 ;
+; SW[2]      ; HEX_out[3]  ; 15.829 ; 15.829 ; 15.829 ; 15.829 ;
+; SW[2]      ; HEX_out[4]  ; 15.498 ; 15.498 ; 15.498 ; 15.498 ;
+; SW[2]      ; HEX_out[6]  ; 15.498 ; 15.498 ; 15.498 ; 15.498 ;
+; SW[2]      ; LEDG        ; 12.019 ; 12.019 ; 12.019 ; 12.019 ;
+; SW[2]      ; LEDR[2]     ; 6.992  ;        ;        ; 6.992  ;
+; SW[3]      ; HEX_out[0]  ; 15.972 ; 15.972 ; 15.972 ; 15.972 ;
+; SW[3]      ; HEX_out[3]  ; 15.990 ; 15.990 ; 15.990 ; 15.990 ;
+; SW[3]      ; HEX_out[4]  ; 15.659 ; 15.659 ; 15.659 ; 15.659 ;
+; SW[3]      ; HEX_out[6]  ; 15.659 ; 15.659 ; 15.659 ; 15.659 ;
+; SW[3]      ; LEDG        ; 12.180 ; 12.180 ; 12.180 ; 12.180 ;
+; SW[3]      ; LEDR[3]     ; 7.639  ;        ;        ; 7.639  ;
+; SW[4]      ; HEX_out[0]  ; 16.467 ; 16.467 ; 16.467 ; 16.467 ;
+; SW[4]      ; HEX_out[3]  ; 16.485 ; 16.485 ; 16.485 ; 16.485 ;
+; SW[4]      ; HEX_out[4]  ; 16.154 ; 16.154 ; 16.154 ; 16.154 ;
+; SW[4]      ; HEX_out[6]  ; 16.154 ; 16.154 ; 16.154 ; 16.154 ;
+; SW[4]      ; LEDG        ; 12.675 ; 12.675 ; 12.675 ; 12.675 ;
+; SW[4]      ; LEDR[4]     ; 7.556  ;        ;        ; 7.556  ;
+; SW[5]      ; HEX_out[0]  ; 16.278 ; 16.278 ; 16.278 ; 16.278 ;
+; SW[5]      ; HEX_out[3]  ; 16.296 ; 16.296 ; 16.296 ; 16.296 ;
+; SW[5]      ; HEX_out[4]  ; 15.965 ; 15.965 ; 15.965 ; 15.965 ;
+; SW[5]      ; HEX_out[6]  ; 15.965 ; 15.965 ; 15.965 ; 15.965 ;
+; SW[5]      ; LEDG        ; 12.486 ; 12.486 ; 12.486 ; 12.486 ;
+; SW[5]      ; LEDR[5]     ; 7.816  ;        ;        ; 7.816  ;
+; SW[6]      ; HEX_out[0]  ; 16.415 ; 16.415 ; 16.415 ; 16.415 ;
+; SW[6]      ; HEX_out[3]  ; 16.433 ; 16.433 ; 16.433 ; 16.433 ;
+; SW[6]      ; HEX_out[4]  ; 16.102 ; 16.102 ; 16.102 ; 16.102 ;
+; SW[6]      ; HEX_out[6]  ; 16.102 ; 16.102 ; 16.102 ; 16.102 ;
+; SW[6]      ; LEDG        ; 12.623 ; 12.623 ; 12.623 ; 12.623 ;
+; SW[6]      ; LEDR[6]     ; 7.599  ;        ;        ; 7.599  ;
+; SW[7]      ; HEX_out[0]  ; 16.590 ; 16.590 ; 16.590 ; 16.590 ;
+; SW[7]      ; HEX_out[3]  ; 16.608 ; 16.608 ; 16.608 ; 16.608 ;
+; SW[7]      ; HEX_out[4]  ; 16.277 ; 16.277 ; 16.277 ; 16.277 ;
+; SW[7]      ; HEX_out[6]  ; 16.277 ; 16.277 ; 16.277 ; 16.277 ;
+; SW[7]      ; LEDG        ; 12.798 ; 12.798 ; 12.798 ; 12.798 ;
+; SW[7]      ; LEDR[7]     ; 8.132  ;        ;        ; 8.132  ;
+; SW[8]      ; HEX_out[0]  ; 15.953 ; 15.953 ; 15.953 ; 15.953 ;
+; SW[8]      ; HEX_out[3]  ; 15.971 ; 15.971 ; 15.971 ; 15.971 ;
+; SW[8]      ; HEX_out[4]  ; 15.640 ; 15.640 ; 15.640 ; 15.640 ;
+; SW[8]      ; HEX_out[6]  ; 15.640 ; 15.640 ; 15.640 ; 15.640 ;
+; SW[8]      ; LEDG        ; 12.161 ; 12.161 ; 12.161 ; 12.161 ;
+; SW[8]      ; LEDR[8]     ; 7.433  ;        ;        ; 7.433  ;
+; SW[9]      ; HEX_out[0]  ; 11.330 ; 13.182 ; 13.182 ; 11.330 ;
+; SW[9]      ; HEX_out[3]  ; 13.200 ; 11.348 ; 11.348 ; 13.200 ;
+; SW[9]      ; HEX_out[4]  ; 11.017 ; 12.869 ; 12.869 ; 11.017 ;
+; SW[9]      ; HEX_out[6]  ; 12.869 ; 11.017 ; 11.017 ; 12.869 ;
+; SW[9]      ; LEDG        ; 7.538  ; 9.390  ; 9.390  ; 7.538  ;
+; SW[9]      ; LEDR[9]     ; 7.725  ;        ;        ; 7.725  ;
++------------+-------------+--------+--------+--------+--------+
+
+
++--------------------------------------------------------------+
+; Minimum Propagation Delay                                    ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; SW[0]      ; HEX_out[0]  ; 10.691 ; 13.001 ; 13.001 ; 10.691 ;
+; SW[0]      ; HEX_out[3]  ; 13.019 ; 10.709 ; 10.709 ; 13.019 ;
+; SW[0]      ; HEX_out[4]  ; 10.378 ; 12.688 ; 12.688 ; 10.378 ;
+; SW[0]      ; HEX_out[6]  ; 12.688 ; 10.378 ; 10.378 ; 12.688 ;
+; SW[0]      ; LEDG        ; 6.899  ; 9.209  ; 9.209  ; 6.899  ;
+; SW[0]      ; LEDR[0]     ; 6.919  ;        ;        ; 6.919  ;
+; SW[1]      ; HEX_out[0]  ; 12.433 ; 13.465 ; 13.465 ; 12.433 ;
+; SW[1]      ; HEX_out[3]  ; 13.483 ; 12.451 ; 12.451 ; 13.483 ;
+; SW[1]      ; HEX_out[4]  ; 12.120 ; 13.152 ; 13.152 ; 12.120 ;
+; SW[1]      ; HEX_out[6]  ; 13.152 ; 12.120 ; 12.120 ; 13.152 ;
+; SW[1]      ; LEDG        ; 8.641  ; 9.673  ; 9.673  ; 8.641  ;
+; SW[1]      ; LEDR[1]     ; 6.794  ;        ;        ; 6.794  ;
+; SW[2]      ; HEX_out[0]  ; 13.596 ; 12.898 ; 12.898 ; 13.596 ;
+; SW[2]      ; HEX_out[3]  ; 12.916 ; 13.614 ; 13.614 ; 12.916 ;
+; SW[2]      ; HEX_out[4]  ; 13.283 ; 12.585 ; 12.585 ; 13.283 ;
+; SW[2]      ; HEX_out[6]  ; 12.585 ; 13.283 ; 13.283 ; 12.585 ;
+; SW[2]      ; LEDG        ; 9.804  ; 9.106  ; 9.106  ; 9.804  ;
+; SW[2]      ; LEDR[2]     ; 6.992  ;        ;        ; 6.992  ;
+; SW[3]      ; HEX_out[0]  ; 13.161 ; 13.161 ; 13.161 ; 13.161 ;
+; SW[3]      ; HEX_out[3]  ; 13.179 ; 13.179 ; 13.179 ; 13.179 ;
+; SW[3]      ; HEX_out[4]  ; 12.848 ; 12.848 ; 12.848 ; 12.848 ;
+; SW[3]      ; HEX_out[6]  ; 12.848 ; 12.848 ; 12.848 ; 12.848 ;
+; SW[3]      ; LEDG        ; 9.369  ; 9.369  ; 9.369  ; 9.369  ;
+; SW[3]      ; LEDR[3]     ; 7.639  ;        ;        ; 7.639  ;
+; SW[4]      ; HEX_out[0]  ; 11.775 ; 11.775 ; 11.775 ; 11.775 ;
+; SW[4]      ; HEX_out[3]  ; 11.793 ; 11.793 ; 11.793 ; 11.793 ;
+; SW[4]      ; HEX_out[4]  ; 11.462 ; 11.462 ; 11.462 ; 11.462 ;
+; SW[4]      ; HEX_out[6]  ; 11.462 ; 11.462 ; 11.462 ; 11.462 ;
+; SW[4]      ; LEDG        ; 7.983  ; 7.983  ; 7.983  ; 7.983  ;
+; SW[4]      ; LEDR[4]     ; 7.556  ;        ;        ; 7.556  ;
+; SW[5]      ; HEX_out[0]  ; 12.977 ; 12.977 ; 12.977 ; 12.977 ;
+; SW[5]      ; HEX_out[3]  ; 12.995 ; 12.995 ; 12.995 ; 12.995 ;
+; SW[5]      ; HEX_out[4]  ; 12.664 ; 12.664 ; 12.664 ; 12.664 ;
+; SW[5]      ; HEX_out[6]  ; 12.664 ; 12.664 ; 12.664 ; 12.664 ;
+; SW[5]      ; LEDG        ; 9.185  ; 9.185  ; 9.185  ; 9.185  ;
+; SW[5]      ; LEDR[5]     ; 7.816  ;        ;        ; 7.816  ;
+; SW[6]      ; HEX_out[0]  ; 12.716 ; 12.716 ; 12.716 ; 12.716 ;
+; SW[6]      ; HEX_out[3]  ; 12.734 ; 12.734 ; 12.734 ; 12.734 ;
+; SW[6]      ; HEX_out[4]  ; 12.403 ; 12.403 ; 12.403 ; 12.403 ;
+; SW[6]      ; HEX_out[6]  ; 12.403 ; 12.403 ; 12.403 ; 12.403 ;
+; SW[6]      ; LEDG        ; 8.924  ; 8.924  ; 8.924  ; 8.924  ;
+; SW[6]      ; LEDR[6]     ; 7.599  ;        ;        ; 7.599  ;
+; SW[7]      ; HEX_out[0]  ; 13.832 ; 13.403 ; 13.403 ; 13.832 ;
+; SW[7]      ; HEX_out[3]  ; 13.421 ; 13.850 ; 13.850 ; 13.421 ;
+; SW[7]      ; HEX_out[4]  ; 13.519 ; 13.090 ; 13.090 ; 13.519 ;
+; SW[7]      ; HEX_out[6]  ; 13.090 ; 13.519 ; 13.519 ; 13.090 ;
+; SW[7]      ; LEDG        ; 10.040 ; 9.611  ; 9.611  ; 10.040 ;
+; SW[7]      ; LEDR[7]     ; 8.132  ;        ;        ; 8.132  ;
+; SW[8]      ; HEX_out[0]  ; 13.071 ; 13.027 ; 13.027 ; 13.071 ;
+; SW[8]      ; HEX_out[3]  ; 13.045 ; 13.089 ; 13.089 ; 13.045 ;
+; SW[8]      ; HEX_out[4]  ; 12.758 ; 12.714 ; 12.714 ; 12.758 ;
+; SW[8]      ; HEX_out[6]  ; 12.714 ; 12.758 ; 12.758 ; 12.714 ;
+; SW[8]      ; LEDG        ; 9.279  ; 9.235  ; 9.235  ; 9.279  ;
+; SW[8]      ; LEDR[8]     ; 7.433  ;        ;        ; 7.433  ;
+; SW[9]      ; HEX_out[0]  ; 11.330 ; 12.602 ; 12.602 ; 11.330 ;
+; SW[9]      ; HEX_out[3]  ; 12.620 ; 11.348 ; 11.348 ; 12.620 ;
+; SW[9]      ; HEX_out[4]  ; 11.017 ; 12.289 ; 12.289 ; 11.017 ;
+; SW[9]      ; HEX_out[6]  ; 12.289 ; 11.017 ; 11.017 ; 12.289 ;
+; SW[9]      ; LEDG        ; 7.538  ; 8.810  ; 8.810  ; 7.538  ;
+; SW[9]      ; LEDR[9]     ; 7.725  ;        ;        ; 7.725  ;
++------------+-------------+--------+--------+--------+--------+
+
+
++------------------------------------+
+; Fast Model Setup Summary           ;
++-----------+--------+---------------+
+; Clock     ; Slack  ; End Point TNS ;
++-----------+--------+---------------+
+; push_butt ; -0.033 ; -0.330        ;
++-----------+--------+---------------+
+
+
++-----------------------------------+
+; Fast Model Hold Summary           ;
++-----------+-------+---------------+
+; Clock     ; Slack ; End Point TNS ;
++-----------+-------+---------------+
+; push_butt ; 0.215 ; 0.000         ;
++-----------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-----------+--------+-------------------+
+; Clock     ; Slack  ; End Point TNS     ;
++-----------+--------+-------------------+
+; push_butt ; -1.222 ; -43.222           ;
++-----------+--------+-------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'push_butt'                                                                                         ;
++--------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.033 ; state_counter[0] ; prime0[0]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[1]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[2]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[3]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[4]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[5]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[6]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[7]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[8]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; -0.033 ; state_counter[0] ; prime0[9]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.060      ;
+; 0.018  ; state_counter[1] ; prime0[0]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[1]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[2]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[3]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[4]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[5]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[6]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[7]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[8]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.018  ; state_counter[1] ; prime0[9]           ; push_butt    ; push_butt   ; 1.000        ; -0.005     ; 1.009      ;
+; 0.037  ; state_counter[1] ; out_second_prime[0] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.037  ; state_counter[1] ; out_second_prime[1] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.037  ; state_counter[1] ; out_second_prime[2] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.037  ; state_counter[1] ; out_second_prime[3] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.037  ; state_counter[1] ; out_second_prime[4] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.037  ; state_counter[1] ; out_second_prime[5] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.037  ; state_counter[1] ; out_second_prime[6] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.037  ; state_counter[1] ; out_second_prime[7] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.992      ;
+; 0.050  ; state_counter[1] ; out_second_prime[8] ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.998      ;
+; 0.050  ; state_counter[1] ; out_second_prime[9] ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.998      ;
+; 0.068  ; state_counter[1] ; prime1[0]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[1]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[2]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[3]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[4]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[5]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[6]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[7]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[8]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.068  ; state_counter[1] ; prime1[9]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.964      ;
+; 0.104  ; state_counter[0] ; out_second_prime[0] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.104  ; state_counter[0] ; out_second_prime[1] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.104  ; state_counter[0] ; out_second_prime[2] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.104  ; state_counter[0] ; out_second_prime[3] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.104  ; state_counter[0] ; out_second_prime[4] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.104  ; state_counter[0] ; out_second_prime[5] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.104  ; state_counter[0] ; out_second_prime[6] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.104  ; state_counter[0] ; out_second_prime[7] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.925      ;
+; 0.117  ; state_counter[0] ; out_second_prime[8] ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.931      ;
+; 0.117  ; state_counter[0] ; out_second_prime[9] ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.931      ;
+; 0.134  ; state_counter[1] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.134  ; state_counter[1] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.134  ; state_counter[1] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.134  ; state_counter[1] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.134  ; state_counter[1] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.134  ; state_counter[1] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.134  ; state_counter[1] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.134  ; state_counter[1] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.894      ;
+; 0.183  ; state_counter[1] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.865      ;
+; 0.183  ; state_counter[1] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.865      ;
+; 0.192  ; state_counter[0] ; prime1[0]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[1]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[2]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[3]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[4]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[5]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[6]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[7]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[8]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.192  ; state_counter[0] ; prime1[9]           ; push_butt    ; push_butt   ; 1.000        ; 0.000      ; 0.840      ;
+; 0.363  ; state_counter[0] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.665      ;
+; 0.365  ; state_counter[0] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.663      ;
+; 0.365  ; state_counter[0] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.663      ;
+; 0.365  ; state_counter[0] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.663      ;
+; 0.366  ; state_counter[0] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.662      ;
+; 0.366  ; state_counter[0] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.662      ;
+; 0.367  ; state_counter[0] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.661      ;
+; 0.368  ; state_counter[0] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 1.000        ; -0.004     ; 0.660      ;
+; 0.371  ; prime1[5]        ; out_second_prime[5] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.658      ;
+; 0.381  ; prime1[7]        ; out_second_prime[7] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.648      ;
+; 0.385  ; prime1[4]        ; out_second_prime[4] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.644      ;
+; 0.396  ; state_counter[0] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.652      ;
+; 0.397  ; state_counter[0] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.651      ;
+; 0.431  ; prime0[4]        ; out_first_prime[4]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.602      ;
+; 0.437  ; prime0[1]        ; out_first_prime[1]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.596      ;
+; 0.438  ; prime0[2]        ; out_first_prime[2]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.595      ;
+; 0.444  ; prime1[0]        ; out_second_prime[0] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.585      ;
+; 0.455  ; prime0[5]        ; out_first_prime[5]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.578      ;
+; 0.458  ; prime1[9]        ; out_second_prime[9] ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.590      ;
+; 0.458  ; prime0[0]        ; out_first_prime[0]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.575      ;
+; 0.460  ; prime0[7]        ; out_first_prime[7]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.573      ;
+; 0.462  ; prime1[6]        ; out_second_prime[6] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.567      ;
+; 0.462  ; prime0[3]        ; out_first_prime[3]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.571      ;
+; 0.463  ; prime1[3]        ; out_second_prime[3] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.566      ;
+; 0.463  ; prime0[6]        ; out_first_prime[6]  ; push_butt    ; push_butt   ; 1.000        ; 0.001      ; 0.570      ;
+; 0.468  ; prime1[1]        ; out_second_prime[1] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.561      ;
+; 0.470  ; prime1[2]        ; out_second_prime[2] ; push_butt    ; push_butt   ; 1.000        ; -0.003     ; 0.559      ;
+; 0.499  ; prime1[8]        ; out_second_prime[8] ; push_butt    ; push_butt   ; 1.000        ; 0.016      ; 0.549      ;
+; 0.575  ; prime0[9]        ; out_first_prime[9]  ; push_butt    ; push_butt   ; 1.000        ; 0.021      ; 0.478      ;
+; 0.575  ; prime0[8]        ; out_first_prime[8]  ; push_butt    ; push_butt   ; 1.000        ; 0.021      ; 0.478      ;
++--------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'push_butt'                                                                                         ;
++-------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; state_counter[0] ; state_counter[0]    ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; state_counter[1] ; state_counter[1]    ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.258 ; state_counter[0] ; state_counter[1]    ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.410      ;
+; 0.305 ; prime0[8]        ; out_first_prime[8]  ; push_butt    ; push_butt   ; 0.000        ; 0.021      ; 0.478      ;
+; 0.305 ; prime0[9]        ; out_first_prime[9]  ; push_butt    ; push_butt   ; 0.000        ; 0.021      ; 0.478      ;
+; 0.381 ; prime1[8]        ; out_second_prime[8] ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.549      ;
+; 0.410 ; prime1[2]        ; out_second_prime[2] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.559      ;
+; 0.412 ; prime1[1]        ; out_second_prime[1] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.561      ;
+; 0.417 ; prime1[3]        ; out_second_prime[3] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.566      ;
+; 0.417 ; prime0[6]        ; out_first_prime[6]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.570      ;
+; 0.418 ; prime0[3]        ; out_first_prime[3]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.571      ;
+; 0.418 ; prime1[6]        ; out_second_prime[6] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.567      ;
+; 0.420 ; prime0[7]        ; out_first_prime[7]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.573      ;
+; 0.422 ; prime0[0]        ; out_first_prime[0]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.575      ;
+; 0.422 ; prime1[9]        ; out_second_prime[9] ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.590      ;
+; 0.425 ; prime0[5]        ; out_first_prime[5]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.578      ;
+; 0.436 ; prime1[0]        ; out_second_prime[0] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.585      ;
+; 0.442 ; prime0[2]        ; out_first_prime[2]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.595      ;
+; 0.443 ; prime0[1]        ; out_first_prime[1]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.596      ;
+; 0.449 ; prime0[4]        ; out_first_prime[4]  ; push_butt    ; push_butt   ; 0.000        ; 0.001      ; 0.602      ;
+; 0.483 ; state_counter[0] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.651      ;
+; 0.484 ; state_counter[0] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.652      ;
+; 0.495 ; prime1[4]        ; out_second_prime[4] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.644      ;
+; 0.499 ; prime1[7]        ; out_second_prime[7] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.648      ;
+; 0.509 ; prime1[5]        ; out_second_prime[5] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.658      ;
+; 0.512 ; state_counter[0] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.660      ;
+; 0.513 ; state_counter[0] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.661      ;
+; 0.514 ; state_counter[0] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.662      ;
+; 0.514 ; state_counter[0] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.662      ;
+; 0.515 ; state_counter[0] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.663      ;
+; 0.515 ; state_counter[0] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.663      ;
+; 0.515 ; state_counter[0] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.663      ;
+; 0.517 ; state_counter[0] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.665      ;
+; 0.549 ; state_counter[1] ; out_first_prime[6]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.697      ;
+; 0.550 ; state_counter[1] ; out_first_prime[1]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.698      ;
+; 0.552 ; state_counter[1] ; out_first_prime[3]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.700      ;
+; 0.552 ; state_counter[1] ; out_first_prime[5]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.700      ;
+; 0.554 ; state_counter[1] ; out_first_prime[0]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.702      ;
+; 0.554 ; state_counter[1] ; out_first_prime[4]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.702      ;
+; 0.555 ; state_counter[1] ; out_first_prime[7]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.703      ;
+; 0.557 ; state_counter[1] ; out_first_prime[2]  ; push_butt    ; push_butt   ; 0.000        ; -0.004     ; 0.705      ;
+; 0.561 ; state_counter[1] ; out_first_prime[8]  ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.729      ;
+; 0.563 ; state_counter[1] ; out_first_prime[9]  ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.731      ;
+; 0.688 ; state_counter[0] ; prime1[0]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[1]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[2]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[3]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[4]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[5]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[6]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[7]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[8]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.688 ; state_counter[0] ; prime1[9]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.840      ;
+; 0.763 ; state_counter[0] ; out_second_prime[8] ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.931      ;
+; 0.763 ; state_counter[0] ; out_second_prime[9] ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.931      ;
+; 0.776 ; state_counter[0] ; out_second_prime[0] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.776 ; state_counter[0] ; out_second_prime[1] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.776 ; state_counter[0] ; out_second_prime[2] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.776 ; state_counter[0] ; out_second_prime[3] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.776 ; state_counter[0] ; out_second_prime[4] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.776 ; state_counter[0] ; out_second_prime[5] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.776 ; state_counter[0] ; out_second_prime[6] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.776 ; state_counter[0] ; out_second_prime[7] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.925      ;
+; 0.812 ; state_counter[1] ; prime1[0]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[1]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[2]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[3]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[4]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[5]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[6]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[7]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[8]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.812 ; state_counter[1] ; prime1[9]           ; push_butt    ; push_butt   ; 0.000        ; 0.000      ; 0.964      ;
+; 0.830 ; state_counter[1] ; out_second_prime[8] ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.998      ;
+; 0.830 ; state_counter[1] ; out_second_prime[9] ; push_butt    ; push_butt   ; 0.000        ; 0.016      ; 0.998      ;
+; 0.843 ; state_counter[1] ; out_second_prime[0] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.843 ; state_counter[1] ; out_second_prime[1] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.843 ; state_counter[1] ; out_second_prime[2] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.843 ; state_counter[1] ; out_second_prime[3] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.843 ; state_counter[1] ; out_second_prime[4] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.843 ; state_counter[1] ; out_second_prime[5] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.843 ; state_counter[1] ; out_second_prime[6] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.843 ; state_counter[1] ; out_second_prime[7] ; push_butt    ; push_butt   ; 0.000        ; -0.003     ; 0.992      ;
+; 0.862 ; state_counter[1] ; prime0[0]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[1]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[2]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[3]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[4]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[5]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[6]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[7]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[8]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.862 ; state_counter[1] ; prime0[9]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.009      ;
+; 0.913 ; state_counter[0] ; prime0[0]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.060      ;
+; 0.913 ; state_counter[0] ; prime0[1]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.060      ;
+; 0.913 ; state_counter[0] ; prime0[2]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.060      ;
+; 0.913 ; state_counter[0] ; prime0[3]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.060      ;
+; 0.913 ; state_counter[0] ; prime0[4]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.060      ;
+; 0.913 ; state_counter[0] ; prime0[5]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.060      ;
+; 0.913 ; state_counter[0] ; prime0[6]           ; push_butt    ; push_butt   ; 0.000        ; -0.005     ; 1.060      ;
++-------+------------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'push_butt'                                                                 ;
++--------+--------------+----------------+------------------+-----------+------------+------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock     ; Clock Edge ; Target                 ;
++--------+--------------+----------------+------------------+-----------+------------+------------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; push_butt ; Rise       ; push_butt              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[8]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[8]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_first_prime[9]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_first_prime[9]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[0]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[0]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[1]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[1]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[2]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[2]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[3]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[3]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[4]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[4]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[5]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[5]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[6]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[6]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[7]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[7]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[8]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[8]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; out_second_prime[9]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; out_second_prime[9]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[0]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[0]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[1]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[1]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[2]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[2]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[3]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[3]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[4]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[4]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[5]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[5]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[6]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[6]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[7]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[7]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[8]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[8]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime0[9]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime0[9]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[0]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[0]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[1]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[1]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[2]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[2]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[3]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[3]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[4]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[4]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[5]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[5]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[6]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[6]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[7]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[7]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[8]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[8]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; prime1[9]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; prime1[9]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; state_counter[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; state_counter[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; push_butt ; Fall       ; state_counter[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; push_butt ; Fall       ; state_counter[1]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[0]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[0]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[1]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[1]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[2]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[2]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[3]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[3]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[4]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[4]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[5]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[5]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[6]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; push_butt ; Rise       ; out_first_prime[6]|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; push_butt ; Rise       ; out_first_prime[7]|clk ;
++--------+--------------+----------------+------------------+-----------+------------+------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; push_butt  ; 0.491 ; 0.491 ; Fall       ; push_butt       ;
+;  SW[0]    ; push_butt  ; 0.195 ; 0.195 ; Fall       ; push_butt       ;
+;  SW[1]    ; push_butt  ; 0.277 ; 0.277 ; Fall       ; push_butt       ;
+;  SW[2]    ; push_butt  ; 0.113 ; 0.113 ; Fall       ; push_butt       ;
+;  SW[3]    ; push_butt  ; 0.298 ; 0.298 ; Fall       ; push_butt       ;
+;  SW[4]    ; push_butt  ; 0.252 ; 0.252 ; Fall       ; push_butt       ;
+;  SW[5]    ; push_butt  ; 0.297 ; 0.297 ; Fall       ; push_butt       ;
+;  SW[6]    ; push_butt  ; 0.185 ; 0.185 ; Fall       ; push_butt       ;
+;  SW[7]    ; push_butt  ; 0.273 ; 0.273 ; Fall       ; push_butt       ;
+;  SW[8]    ; push_butt  ; 0.491 ; 0.491 ; Fall       ; push_butt       ;
+;  SW[9]    ; push_butt  ; 0.398 ; 0.398 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; push_butt  ; 0.191  ; 0.191  ; Fall       ; push_butt       ;
+;  SW[0]    ; push_butt  ; 0.087  ; 0.087  ; Fall       ; push_butt       ;
+;  SW[1]    ; push_butt  ; 0.191  ; 0.191  ; Fall       ; push_butt       ;
+;  SW[2]    ; push_butt  ; 0.179  ; 0.179  ; Fall       ; push_butt       ;
+;  SW[3]    ; push_butt  ; -0.061 ; -0.061 ; Fall       ; push_butt       ;
+;  SW[4]    ; push_butt  ; -0.117 ; -0.117 ; Fall       ; push_butt       ;
+;  SW[5]    ; push_butt  ; -0.106 ; -0.106 ; Fall       ; push_butt       ;
+;  SW[6]    ; push_butt  ; -0.060 ; -0.060 ; Fall       ; push_butt       ;
+;  SW[7]    ; push_butt  ; -0.063 ; -0.063 ; Fall       ; push_butt       ;
+;  SW[8]    ; push_butt  ; -0.195 ; -0.195 ; Fall       ; push_butt       ;
+;  SW[9]    ; push_butt  ; -0.265 ; -0.265 ; Fall       ; push_butt       ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG2     ; push_butt  ; 4.742 ; 4.742 ; Rise       ; push_butt       ;
+; LEDG2     ; push_butt  ; 4.742 ; 4.742 ; Fall       ; push_butt       ;
+; LEDR[*]   ; push_butt  ; 3.630 ; 3.630 ; Fall       ; push_butt       ;
+;  LEDR[0]  ; push_butt  ; 3.419 ; 3.419 ; Fall       ; push_butt       ;
+;  LEDR[1]  ; push_butt  ; 3.387 ; 3.387 ; Fall       ; push_butt       ;
+;  LEDR[2]  ; push_butt  ; 3.630 ; 3.630 ; Fall       ; push_butt       ;
+;  LEDR[3]  ; push_butt  ; 3.521 ; 3.521 ; Fall       ; push_butt       ;
+;  LEDR[4]  ; push_butt  ; 3.616 ; 3.616 ; Fall       ; push_butt       ;
+;  LEDR[5]  ; push_butt  ; 3.512 ; 3.512 ; Fall       ; push_butt       ;
+;  LEDR[6]  ; push_butt  ; 3.502 ; 3.502 ; Fall       ; push_butt       ;
+;  LEDR[7]  ; push_butt  ; 3.606 ; 3.606 ; Fall       ; push_butt       ;
+;  LEDR[8]  ; push_butt  ; 3.324 ; 3.324 ; Fall       ; push_butt       ;
+;  LEDR[9]  ; push_butt  ; 3.437 ; 3.437 ; Fall       ; push_butt       ;
+; state[*]  ; push_butt  ; 3.322 ; 3.322 ; Fall       ; push_butt       ;
+;  state[0] ; push_butt  ; 3.320 ; 3.320 ; Fall       ; push_butt       ;
+;  state[1] ; push_butt  ; 3.322 ; 3.322 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG2     ; push_butt  ; 4.742 ; 4.742 ; Rise       ; push_butt       ;
+; LEDG2     ; push_butt  ; 4.742 ; 4.742 ; Fall       ; push_butt       ;
+; LEDR[*]   ; push_butt  ; 3.245 ; 3.245 ; Fall       ; push_butt       ;
+;  LEDR[0]  ; push_butt  ; 3.280 ; 3.280 ; Fall       ; push_butt       ;
+;  LEDR[1]  ; push_butt  ; 3.245 ; 3.245 ; Fall       ; push_butt       ;
+;  LEDR[2]  ; push_butt  ; 3.487 ; 3.487 ; Fall       ; push_butt       ;
+;  LEDR[3]  ; push_butt  ; 3.498 ; 3.498 ; Fall       ; push_butt       ;
+;  LEDR[4]  ; push_butt  ; 3.591 ; 3.591 ; Fall       ; push_butt       ;
+;  LEDR[5]  ; push_butt  ; 3.490 ; 3.490 ; Fall       ; push_butt       ;
+;  LEDR[6]  ; push_butt  ; 3.475 ; 3.475 ; Fall       ; push_butt       ;
+;  LEDR[7]  ; push_butt  ; 3.584 ; 3.584 ; Fall       ; push_butt       ;
+;  LEDR[8]  ; push_butt  ; 3.298 ; 3.298 ; Fall       ; push_butt       ;
+;  LEDR[9]  ; push_butt  ; 3.410 ; 3.410 ; Fall       ; push_butt       ;
+; state[*]  ; push_butt  ; 3.320 ; 3.320 ; Fall       ; push_butt       ;
+;  state[0] ; push_butt  ; 3.320 ; 3.320 ; Fall       ; push_butt       ;
+;  state[1] ; push_butt  ; 3.322 ; 3.322 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------+
+; Propagation Delay                                        ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; SW[0]      ; HEX_out[0]  ; 5.091 ; 5.634 ; 5.634 ; 5.091 ;
+; SW[0]      ; HEX_out[3]  ; 5.651 ; 5.108 ; 5.108 ; 5.651 ;
+; SW[0]      ; HEX_out[4]  ; 4.991 ; 5.534 ; 5.534 ; 4.991 ;
+; SW[0]      ; HEX_out[6]  ; 5.534 ; 4.991 ; 4.991 ; 5.534 ;
+; SW[0]      ; LEDG        ; 3.460 ; 4.003 ; 4.003 ; 3.460 ;
+; SW[0]      ; LEDR[0]     ; 3.129 ;       ;       ; 3.129 ;
+; SW[1]      ; HEX_out[0]  ; 6.686 ; 6.686 ; 6.686 ; 6.686 ;
+; SW[1]      ; HEX_out[3]  ; 6.703 ; 6.703 ; 6.703 ; 6.703 ;
+; SW[1]      ; HEX_out[4]  ; 6.586 ; 6.586 ; 6.586 ; 6.586 ;
+; SW[1]      ; HEX_out[6]  ; 6.586 ; 6.586 ; 6.586 ; 6.586 ;
+; SW[1]      ; LEDG        ; 5.055 ; 5.055 ; 5.055 ; 5.055 ;
+; SW[1]      ; LEDR[1]     ; 3.077 ;       ;       ; 3.077 ;
+; SW[2]      ; HEX_out[0]  ; 6.573 ; 6.573 ; 6.573 ; 6.573 ;
+; SW[2]      ; HEX_out[3]  ; 6.590 ; 6.590 ; 6.590 ; 6.590 ;
+; SW[2]      ; HEX_out[4]  ; 6.473 ; 6.473 ; 6.473 ; 6.473 ;
+; SW[2]      ; HEX_out[6]  ; 6.473 ; 6.473 ; 6.473 ; 6.473 ;
+; SW[2]      ; LEDG        ; 4.942 ; 4.942 ; 4.942 ; 4.942 ;
+; SW[2]      ; LEDR[2]     ; 3.191 ;       ;       ; 3.191 ;
+; SW[3]      ; HEX_out[0]  ; 6.698 ; 6.698 ; 6.698 ; 6.698 ;
+; SW[3]      ; HEX_out[3]  ; 6.715 ; 6.715 ; 6.715 ; 6.715 ;
+; SW[3]      ; HEX_out[4]  ; 6.598 ; 6.598 ; 6.598 ; 6.598 ;
+; SW[3]      ; HEX_out[6]  ; 6.598 ; 6.598 ; 6.598 ; 6.598 ;
+; SW[3]      ; LEDG        ; 5.067 ; 5.067 ; 5.067 ; 5.067 ;
+; SW[3]      ; LEDR[3]     ; 3.478 ;       ;       ; 3.478 ;
+; SW[4]      ; HEX_out[0]  ; 6.903 ; 6.903 ; 6.903 ; 6.903 ;
+; SW[4]      ; HEX_out[3]  ; 6.920 ; 6.920 ; 6.920 ; 6.920 ;
+; SW[4]      ; HEX_out[4]  ; 6.803 ; 6.803 ; 6.803 ; 6.803 ;
+; SW[4]      ; HEX_out[6]  ; 6.803 ; 6.803 ; 6.803 ; 6.803 ;
+; SW[4]      ; LEDG        ; 5.272 ; 5.272 ; 5.272 ; 5.272 ;
+; SW[4]      ; LEDR[4]     ; 3.510 ;       ;       ; 3.510 ;
+; SW[5]      ; HEX_out[0]  ; 6.853 ; 6.853 ; 6.853 ; 6.853 ;
+; SW[5]      ; HEX_out[3]  ; 6.870 ; 6.870 ; 6.870 ; 6.870 ;
+; SW[5]      ; HEX_out[4]  ; 6.753 ; 6.753 ; 6.753 ; 6.753 ;
+; SW[5]      ; HEX_out[6]  ; 6.753 ; 6.753 ; 6.753 ; 6.753 ;
+; SW[5]      ; LEDG        ; 5.222 ; 5.222 ; 5.222 ; 5.222 ;
+; SW[5]      ; LEDR[5]     ; 3.588 ;       ;       ; 3.588 ;
+; SW[6]      ; HEX_out[0]  ; 6.854 ; 6.854 ; 6.854 ; 6.854 ;
+; SW[6]      ; HEX_out[3]  ; 6.871 ; 6.871 ; 6.871 ; 6.871 ;
+; SW[6]      ; HEX_out[4]  ; 6.754 ; 6.754 ; 6.754 ; 6.754 ;
+; SW[6]      ; HEX_out[6]  ; 6.754 ; 6.754 ; 6.754 ; 6.754 ;
+; SW[6]      ; LEDG        ; 5.223 ; 5.223 ; 5.223 ; 5.223 ;
+; SW[6]      ; LEDR[6]     ; 3.461 ;       ;       ; 3.461 ;
+; SW[7]      ; HEX_out[0]  ; 6.946 ; 6.946 ; 6.946 ; 6.946 ;
+; SW[7]      ; HEX_out[3]  ; 6.963 ; 6.963 ; 6.963 ; 6.963 ;
+; SW[7]      ; HEX_out[4]  ; 6.846 ; 6.846 ; 6.846 ; 6.846 ;
+; SW[7]      ; HEX_out[6]  ; 6.846 ; 6.846 ; 6.846 ; 6.846 ;
+; SW[7]      ; LEDG        ; 5.315 ; 5.315 ; 5.315 ; 5.315 ;
+; SW[7]      ; LEDR[7]     ; 3.744 ;       ;       ; 3.744 ;
+; SW[8]      ; HEX_out[0]  ; 6.734 ; 6.734 ; 6.734 ; 6.734 ;
+; SW[8]      ; HEX_out[3]  ; 6.751 ; 6.751 ; 6.751 ; 6.751 ;
+; SW[8]      ; HEX_out[4]  ; 6.634 ; 6.634 ; 6.634 ; 6.634 ;
+; SW[8]      ; HEX_out[6]  ; 6.634 ; 6.634 ; 6.634 ; 6.634 ;
+; SW[8]      ; LEDG        ; 5.103 ; 5.103 ; 5.103 ; 5.103 ;
+; SW[8]      ; LEDR[8]     ; 3.423 ;       ;       ; 3.423 ;
+; SW[9]      ; HEX_out[0]  ; 5.103 ; 5.763 ; 5.763 ; 5.103 ;
+; SW[9]      ; HEX_out[3]  ; 5.780 ; 5.120 ; 5.120 ; 5.780 ;
+; SW[9]      ; HEX_out[4]  ; 5.003 ; 5.663 ; 5.663 ; 5.003 ;
+; SW[9]      ; HEX_out[6]  ; 5.663 ; 5.003 ; 5.003 ; 5.663 ;
+; SW[9]      ; LEDG        ; 3.472 ; 4.132 ; 4.132 ; 3.472 ;
+; SW[9]      ; LEDR[9]     ; 3.508 ;       ;       ; 3.508 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; SW[0]      ; HEX_out[0]  ; 4.775 ; 5.634 ; 5.634 ; 4.775 ;
+; SW[0]      ; HEX_out[3]  ; 5.651 ; 4.792 ; 4.792 ; 5.651 ;
+; SW[0]      ; HEX_out[4]  ; 4.675 ; 5.534 ; 5.534 ; 4.675 ;
+; SW[0]      ; HEX_out[6]  ; 5.534 ; 4.675 ; 4.675 ; 5.534 ;
+; SW[0]      ; LEDG        ; 3.144 ; 4.003 ; 4.003 ; 3.144 ;
+; SW[0]      ; LEDR[0]     ; 3.129 ;       ;       ; 3.129 ;
+; SW[1]      ; HEX_out[0]  ; 5.390 ; 5.794 ; 5.794 ; 5.390 ;
+; SW[1]      ; HEX_out[3]  ; 5.811 ; 5.407 ; 5.407 ; 5.811 ;
+; SW[1]      ; HEX_out[4]  ; 5.290 ; 5.694 ; 5.694 ; 5.290 ;
+; SW[1]      ; HEX_out[6]  ; 5.694 ; 5.290 ; 5.290 ; 5.694 ;
+; SW[1]      ; LEDG        ; 3.759 ; 4.163 ; 4.163 ; 3.759 ;
+; SW[1]      ; LEDR[1]     ; 3.077 ;       ;       ; 3.077 ;
+; SW[2]      ; HEX_out[0]  ; 5.824 ; 5.578 ; 5.578 ; 5.824 ;
+; SW[2]      ; HEX_out[3]  ; 5.595 ; 5.841 ; 5.841 ; 5.595 ;
+; SW[2]      ; HEX_out[4]  ; 5.724 ; 5.478 ; 5.478 ; 5.724 ;
+; SW[2]      ; HEX_out[6]  ; 5.478 ; 5.724 ; 5.724 ; 5.478 ;
+; SW[2]      ; LEDG        ; 4.193 ; 3.947 ; 3.947 ; 4.193 ;
+; SW[2]      ; LEDR[2]     ; 3.191 ;       ;       ; 3.191 ;
+; SW[3]      ; HEX_out[0]  ; 5.724 ; 5.724 ; 5.724 ; 5.724 ;
+; SW[3]      ; HEX_out[3]  ; 5.741 ; 5.741 ; 5.741 ; 5.741 ;
+; SW[3]      ; HEX_out[4]  ; 5.624 ; 5.624 ; 5.624 ; 5.624 ;
+; SW[3]      ; HEX_out[6]  ; 5.624 ; 5.624 ; 5.624 ; 5.624 ;
+; SW[3]      ; LEDG        ; 4.093 ; 4.093 ; 4.093 ; 4.093 ;
+; SW[3]      ; LEDR[3]     ; 3.478 ;       ;       ; 3.478 ;
+; SW[4]      ; HEX_out[0]  ; 5.223 ; 5.223 ; 5.223 ; 5.223 ;
+; SW[4]      ; HEX_out[3]  ; 5.240 ; 5.240 ; 5.240 ; 5.240 ;
+; SW[4]      ; HEX_out[4]  ; 5.123 ; 5.123 ; 5.123 ; 5.123 ;
+; SW[4]      ; HEX_out[6]  ; 5.123 ; 5.123 ; 5.123 ; 5.123 ;
+; SW[4]      ; LEDG        ; 3.592 ; 3.592 ; 3.592 ; 3.592 ;
+; SW[4]      ; LEDR[4]     ; 3.510 ;       ;       ; 3.510 ;
+; SW[5]      ; HEX_out[0]  ; 5.677 ; 5.677 ; 5.677 ; 5.677 ;
+; SW[5]      ; HEX_out[3]  ; 5.694 ; 5.694 ; 5.694 ; 5.694 ;
+; SW[5]      ; HEX_out[4]  ; 5.577 ; 5.577 ; 5.577 ; 5.577 ;
+; SW[5]      ; HEX_out[6]  ; 5.577 ; 5.577 ; 5.577 ; 5.577 ;
+; SW[5]      ; LEDG        ; 4.046 ; 4.046 ; 4.046 ; 4.046 ;
+; SW[5]      ; LEDR[5]     ; 3.588 ;       ;       ; 3.588 ;
+; SW[6]      ; HEX_out[0]  ; 5.545 ; 5.545 ; 5.545 ; 5.545 ;
+; SW[6]      ; HEX_out[3]  ; 5.562 ; 5.562 ; 5.562 ; 5.562 ;
+; SW[6]      ; HEX_out[4]  ; 5.445 ; 5.445 ; 5.445 ; 5.445 ;
+; SW[6]      ; HEX_out[6]  ; 5.445 ; 5.445 ; 5.445 ; 5.445 ;
+; SW[6]      ; LEDG        ; 3.914 ; 3.914 ; 3.914 ; 3.914 ;
+; SW[6]      ; LEDR[6]     ; 3.461 ;       ;       ; 3.461 ;
+; SW[7]      ; HEX_out[0]  ; 5.986 ; 5.873 ; 5.873 ; 5.986 ;
+; SW[7]      ; HEX_out[3]  ; 5.890 ; 6.003 ; 6.003 ; 5.890 ;
+; SW[7]      ; HEX_out[4]  ; 5.886 ; 5.773 ; 5.773 ; 5.886 ;
+; SW[7]      ; HEX_out[6]  ; 5.773 ; 5.886 ; 5.886 ; 5.773 ;
+; SW[7]      ; LEDG        ; 4.355 ; 4.242 ; 4.242 ; 4.355 ;
+; SW[7]      ; LEDR[7]     ; 3.744 ;       ;       ; 3.744 ;
+; SW[8]      ; HEX_out[0]  ; 5.741 ; 5.741 ; 5.741 ; 5.741 ;
+; SW[8]      ; HEX_out[3]  ; 5.758 ; 5.758 ; 5.758 ; 5.758 ;
+; SW[8]      ; HEX_out[4]  ; 5.641 ; 5.641 ; 5.641 ; 5.641 ;
+; SW[8]      ; HEX_out[6]  ; 5.641 ; 5.641 ; 5.641 ; 5.641 ;
+; SW[8]      ; LEDG        ; 4.110 ; 4.110 ; 4.110 ; 4.110 ;
+; SW[8]      ; LEDR[8]     ; 3.423 ;       ;       ; 3.423 ;
+; SW[9]      ; HEX_out[0]  ; 5.103 ; 5.562 ; 5.562 ; 5.103 ;
+; SW[9]      ; HEX_out[3]  ; 5.579 ; 5.120 ; 5.120 ; 5.579 ;
+; SW[9]      ; HEX_out[4]  ; 5.003 ; 5.462 ; 5.462 ; 5.003 ;
+; SW[9]      ; HEX_out[6]  ; 5.462 ; 5.003 ; 5.003 ; 5.462 ;
+; SW[9]      ; LEDG        ; 3.472 ; 3.931 ; 3.931 ; 3.472 ;
+; SW[9]      ; LEDR[9]     ; 3.508 ;       ;       ; 3.508 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -1.459  ; 0.215 ; N/A      ; N/A     ; -1.469              ;
+;  push_butt       ; -1.459  ; 0.215 ; N/A      ; N/A     ; -1.469              ;
+; Design-wide TNS  ; -46.698 ; 0.0   ; 0.0      ; 0.0     ; -52.793             ;
+;  push_butt       ; -46.698 ; 0.000 ; N/A      ; N/A     ; -52.793             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; push_butt  ; 1.257 ; 1.257 ; Fall       ; push_butt       ;
+;  SW[0]    ; push_butt  ; 0.809 ; 0.809 ; Fall       ; push_butt       ;
+;  SW[1]    ; push_butt  ; 0.955 ; 0.955 ; Fall       ; push_butt       ;
+;  SW[2]    ; push_butt  ; 0.557 ; 0.557 ; Fall       ; push_butt       ;
+;  SW[3]    ; push_butt  ; 0.912 ; 0.912 ; Fall       ; push_butt       ;
+;  SW[4]    ; push_butt  ; 0.831 ; 0.831 ; Fall       ; push_butt       ;
+;  SW[5]    ; push_butt  ; 0.771 ; 0.771 ; Fall       ; push_butt       ;
+;  SW[6]    ; push_butt  ; 0.702 ; 0.702 ; Fall       ; push_butt       ;
+;  SW[7]    ; push_butt  ; 0.829 ; 0.829 ; Fall       ; push_butt       ;
+;  SW[8]    ; push_butt  ; 1.257 ; 1.257 ; Fall       ; push_butt       ;
+;  SW[9]    ; push_butt  ; 1.063 ; 1.063 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; push_butt  ; 0.191  ; 0.191  ; Fall       ; push_butt       ;
+;  SW[0]    ; push_butt  ; 0.087  ; 0.087  ; Fall       ; push_butt       ;
+;  SW[1]    ; push_butt  ; 0.191  ; 0.191  ; Fall       ; push_butt       ;
+;  SW[2]    ; push_butt  ; 0.179  ; 0.179  ; Fall       ; push_butt       ;
+;  SW[3]    ; push_butt  ; -0.061 ; -0.061 ; Fall       ; push_butt       ;
+;  SW[4]    ; push_butt  ; -0.117 ; -0.117 ; Fall       ; push_butt       ;
+;  SW[5]    ; push_butt  ; -0.106 ; -0.106 ; Fall       ; push_butt       ;
+;  SW[6]    ; push_butt  ; -0.060 ; -0.060 ; Fall       ; push_butt       ;
+;  SW[7]    ; push_butt  ; -0.063 ; -0.063 ; Fall       ; push_butt       ;
+;  SW[8]    ; push_butt  ; -0.195 ; -0.195 ; Fall       ; push_butt       ;
+;  SW[9]    ; push_butt  ; -0.265 ; -0.265 ; Fall       ; push_butt       ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG2     ; push_butt  ; 8.876 ; 8.876 ; Rise       ; push_butt       ;
+; LEDG2     ; push_butt  ; 8.876 ; 8.876 ; Fall       ; push_butt       ;
+; LEDR[*]   ; push_butt  ; 7.778 ; 7.778 ; Fall       ; push_butt       ;
+;  LEDR[0]  ; push_butt  ; 7.283 ; 7.283 ; Fall       ; push_butt       ;
+;  LEDR[1]  ; push_butt  ; 7.238 ; 7.238 ; Fall       ; push_butt       ;
+;  LEDR[2]  ; push_butt  ; 7.778 ; 7.778 ; Fall       ; push_butt       ;
+;  LEDR[3]  ; push_butt  ; 7.424 ; 7.424 ; Fall       ; push_butt       ;
+;  LEDR[4]  ; push_butt  ; 7.564 ; 7.564 ; Fall       ; push_butt       ;
+;  LEDR[5]  ; push_butt  ; 7.416 ; 7.416 ; Fall       ; push_butt       ;
+;  LEDR[6]  ; push_butt  ; 7.399 ; 7.399 ; Fall       ; push_butt       ;
+;  LEDR[7]  ; push_butt  ; 7.547 ; 7.547 ; Fall       ; push_butt       ;
+;  LEDR[8]  ; push_butt  ; 6.985 ; 6.985 ; Fall       ; push_butt       ;
+;  LEDR[9]  ; push_butt  ; 7.294 ; 7.294 ; Fall       ; push_butt       ;
+; state[*]  ; push_butt  ; 6.877 ; 6.877 ; Fall       ; push_butt       ;
+;  state[0] ; push_butt  ; 6.877 ; 6.877 ; Fall       ; push_butt       ;
+;  state[1] ; push_butt  ; 6.875 ; 6.875 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG2     ; push_butt  ; 4.742 ; 4.742 ; Rise       ; push_butt       ;
+; LEDG2     ; push_butt  ; 4.742 ; 4.742 ; Fall       ; push_butt       ;
+; LEDR[*]   ; push_butt  ; 3.245 ; 3.245 ; Fall       ; push_butt       ;
+;  LEDR[0]  ; push_butt  ; 3.280 ; 3.280 ; Fall       ; push_butt       ;
+;  LEDR[1]  ; push_butt  ; 3.245 ; 3.245 ; Fall       ; push_butt       ;
+;  LEDR[2]  ; push_butt  ; 3.487 ; 3.487 ; Fall       ; push_butt       ;
+;  LEDR[3]  ; push_butt  ; 3.498 ; 3.498 ; Fall       ; push_butt       ;
+;  LEDR[4]  ; push_butt  ; 3.591 ; 3.591 ; Fall       ; push_butt       ;
+;  LEDR[5]  ; push_butt  ; 3.490 ; 3.490 ; Fall       ; push_butt       ;
+;  LEDR[6]  ; push_butt  ; 3.475 ; 3.475 ; Fall       ; push_butt       ;
+;  LEDR[7]  ; push_butt  ; 3.584 ; 3.584 ; Fall       ; push_butt       ;
+;  LEDR[8]  ; push_butt  ; 3.298 ; 3.298 ; Fall       ; push_butt       ;
+;  LEDR[9]  ; push_butt  ; 3.410 ; 3.410 ; Fall       ; push_butt       ;
+; state[*]  ; push_butt  ; 3.320 ; 3.320 ; Fall       ; push_butt       ;
+;  state[0] ; push_butt  ; 3.320 ; 3.320 ; Fall       ; push_butt       ;
+;  state[1] ; push_butt  ; 3.322 ; 3.322 ; Fall       ; push_butt       ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------+
+; Progagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; SW[0]      ; HEX_out[0]  ; 11.598 ; 13.001 ; 13.001 ; 11.598 ;
+; SW[0]      ; HEX_out[3]  ; 13.019 ; 11.616 ; 11.616 ; 13.019 ;
+; SW[0]      ; HEX_out[4]  ; 11.285 ; 12.688 ; 12.688 ; 11.285 ;
+; SW[0]      ; HEX_out[6]  ; 12.688 ; 11.285 ; 11.285 ; 12.688 ;
+; SW[0]      ; LEDG        ; 7.806  ; 9.209  ; 9.209  ; 7.806  ;
+; SW[0]      ; LEDR[0]     ; 6.919  ;        ;        ; 6.919  ;
+; SW[1]      ; HEX_out[0]  ; 16.074 ; 16.074 ; 16.074 ; 16.074 ;
+; SW[1]      ; HEX_out[3]  ; 16.092 ; 16.092 ; 16.092 ; 16.092 ;
+; SW[1]      ; HEX_out[4]  ; 15.761 ; 15.761 ; 15.761 ; 15.761 ;
+; SW[1]      ; HEX_out[6]  ; 15.761 ; 15.761 ; 15.761 ; 15.761 ;
+; SW[1]      ; LEDG        ; 12.282 ; 12.282 ; 12.282 ; 12.282 ;
+; SW[1]      ; LEDR[1]     ; 6.794  ;        ;        ; 6.794  ;
+; SW[2]      ; HEX_out[0]  ; 15.811 ; 15.811 ; 15.811 ; 15.811 ;
+; SW[2]      ; HEX_out[3]  ; 15.829 ; 15.829 ; 15.829 ; 15.829 ;
+; SW[2]      ; HEX_out[4]  ; 15.498 ; 15.498 ; 15.498 ; 15.498 ;
+; SW[2]      ; HEX_out[6]  ; 15.498 ; 15.498 ; 15.498 ; 15.498 ;
+; SW[2]      ; LEDG        ; 12.019 ; 12.019 ; 12.019 ; 12.019 ;
+; SW[2]      ; LEDR[2]     ; 6.992  ;        ;        ; 6.992  ;
+; SW[3]      ; HEX_out[0]  ; 15.972 ; 15.972 ; 15.972 ; 15.972 ;
+; SW[3]      ; HEX_out[3]  ; 15.990 ; 15.990 ; 15.990 ; 15.990 ;
+; SW[3]      ; HEX_out[4]  ; 15.659 ; 15.659 ; 15.659 ; 15.659 ;
+; SW[3]      ; HEX_out[6]  ; 15.659 ; 15.659 ; 15.659 ; 15.659 ;
+; SW[3]      ; LEDG        ; 12.180 ; 12.180 ; 12.180 ; 12.180 ;
+; SW[3]      ; LEDR[3]     ; 7.639  ;        ;        ; 7.639  ;
+; SW[4]      ; HEX_out[0]  ; 16.467 ; 16.467 ; 16.467 ; 16.467 ;
+; SW[4]      ; HEX_out[3]  ; 16.485 ; 16.485 ; 16.485 ; 16.485 ;
+; SW[4]      ; HEX_out[4]  ; 16.154 ; 16.154 ; 16.154 ; 16.154 ;
+; SW[4]      ; HEX_out[6]  ; 16.154 ; 16.154 ; 16.154 ; 16.154 ;
+; SW[4]      ; LEDG        ; 12.675 ; 12.675 ; 12.675 ; 12.675 ;
+; SW[4]      ; LEDR[4]     ; 7.556  ;        ;        ; 7.556  ;
+; SW[5]      ; HEX_out[0]  ; 16.278 ; 16.278 ; 16.278 ; 16.278 ;
+; SW[5]      ; HEX_out[3]  ; 16.296 ; 16.296 ; 16.296 ; 16.296 ;
+; SW[5]      ; HEX_out[4]  ; 15.965 ; 15.965 ; 15.965 ; 15.965 ;
+; SW[5]      ; HEX_out[6]  ; 15.965 ; 15.965 ; 15.965 ; 15.965 ;
+; SW[5]      ; LEDG        ; 12.486 ; 12.486 ; 12.486 ; 12.486 ;
+; SW[5]      ; LEDR[5]     ; 7.816  ;        ;        ; 7.816  ;
+; SW[6]      ; HEX_out[0]  ; 16.415 ; 16.415 ; 16.415 ; 16.415 ;
+; SW[6]      ; HEX_out[3]  ; 16.433 ; 16.433 ; 16.433 ; 16.433 ;
+; SW[6]      ; HEX_out[4]  ; 16.102 ; 16.102 ; 16.102 ; 16.102 ;
+; SW[6]      ; HEX_out[6]  ; 16.102 ; 16.102 ; 16.102 ; 16.102 ;
+; SW[6]      ; LEDG        ; 12.623 ; 12.623 ; 12.623 ; 12.623 ;
+; SW[6]      ; LEDR[6]     ; 7.599  ;        ;        ; 7.599  ;
+; SW[7]      ; HEX_out[0]  ; 16.590 ; 16.590 ; 16.590 ; 16.590 ;
+; SW[7]      ; HEX_out[3]  ; 16.608 ; 16.608 ; 16.608 ; 16.608 ;
+; SW[7]      ; HEX_out[4]  ; 16.277 ; 16.277 ; 16.277 ; 16.277 ;
+; SW[7]      ; HEX_out[6]  ; 16.277 ; 16.277 ; 16.277 ; 16.277 ;
+; SW[7]      ; LEDG        ; 12.798 ; 12.798 ; 12.798 ; 12.798 ;
+; SW[7]      ; LEDR[7]     ; 8.132  ;        ;        ; 8.132  ;
+; SW[8]      ; HEX_out[0]  ; 15.953 ; 15.953 ; 15.953 ; 15.953 ;
+; SW[8]      ; HEX_out[3]  ; 15.971 ; 15.971 ; 15.971 ; 15.971 ;
+; SW[8]      ; HEX_out[4]  ; 15.640 ; 15.640 ; 15.640 ; 15.640 ;
+; SW[8]      ; HEX_out[6]  ; 15.640 ; 15.640 ; 15.640 ; 15.640 ;
+; SW[8]      ; LEDG        ; 12.161 ; 12.161 ; 12.161 ; 12.161 ;
+; SW[8]      ; LEDR[8]     ; 7.433  ;        ;        ; 7.433  ;
+; SW[9]      ; HEX_out[0]  ; 11.330 ; 13.182 ; 13.182 ; 11.330 ;
+; SW[9]      ; HEX_out[3]  ; 13.200 ; 11.348 ; 11.348 ; 13.200 ;
+; SW[9]      ; HEX_out[4]  ; 11.017 ; 12.869 ; 12.869 ; 11.017 ;
+; SW[9]      ; HEX_out[6]  ; 12.869 ; 11.017 ; 11.017 ; 12.869 ;
+; SW[9]      ; LEDG        ; 7.538  ; 9.390  ; 9.390  ; 7.538  ;
+; SW[9]      ; LEDR[9]     ; 7.725  ;        ;        ; 7.725  ;
++------------+-------------+--------+--------+--------+--------+
+
+
++----------------------------------------------------------+
+; Minimum Progagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; SW[0]      ; HEX_out[0]  ; 4.775 ; 5.634 ; 5.634 ; 4.775 ;
+; SW[0]      ; HEX_out[3]  ; 5.651 ; 4.792 ; 4.792 ; 5.651 ;
+; SW[0]      ; HEX_out[4]  ; 4.675 ; 5.534 ; 5.534 ; 4.675 ;
+; SW[0]      ; HEX_out[6]  ; 5.534 ; 4.675 ; 4.675 ; 5.534 ;
+; SW[0]      ; LEDG        ; 3.144 ; 4.003 ; 4.003 ; 3.144 ;
+; SW[0]      ; LEDR[0]     ; 3.129 ;       ;       ; 3.129 ;
+; SW[1]      ; HEX_out[0]  ; 5.390 ; 5.794 ; 5.794 ; 5.390 ;
+; SW[1]      ; HEX_out[3]  ; 5.811 ; 5.407 ; 5.407 ; 5.811 ;
+; SW[1]      ; HEX_out[4]  ; 5.290 ; 5.694 ; 5.694 ; 5.290 ;
+; SW[1]      ; HEX_out[6]  ; 5.694 ; 5.290 ; 5.290 ; 5.694 ;
+; SW[1]      ; LEDG        ; 3.759 ; 4.163 ; 4.163 ; 3.759 ;
+; SW[1]      ; LEDR[1]     ; 3.077 ;       ;       ; 3.077 ;
+; SW[2]      ; HEX_out[0]  ; 5.824 ; 5.578 ; 5.578 ; 5.824 ;
+; SW[2]      ; HEX_out[3]  ; 5.595 ; 5.841 ; 5.841 ; 5.595 ;
+; SW[2]      ; HEX_out[4]  ; 5.724 ; 5.478 ; 5.478 ; 5.724 ;
+; SW[2]      ; HEX_out[6]  ; 5.478 ; 5.724 ; 5.724 ; 5.478 ;
+; SW[2]      ; LEDG        ; 4.193 ; 3.947 ; 3.947 ; 4.193 ;
+; SW[2]      ; LEDR[2]     ; 3.191 ;       ;       ; 3.191 ;
+; SW[3]      ; HEX_out[0]  ; 5.724 ; 5.724 ; 5.724 ; 5.724 ;
+; SW[3]      ; HEX_out[3]  ; 5.741 ; 5.741 ; 5.741 ; 5.741 ;
+; SW[3]      ; HEX_out[4]  ; 5.624 ; 5.624 ; 5.624 ; 5.624 ;
+; SW[3]      ; HEX_out[6]  ; 5.624 ; 5.624 ; 5.624 ; 5.624 ;
+; SW[3]      ; LEDG        ; 4.093 ; 4.093 ; 4.093 ; 4.093 ;
+; SW[3]      ; LEDR[3]     ; 3.478 ;       ;       ; 3.478 ;
+; SW[4]      ; HEX_out[0]  ; 5.223 ; 5.223 ; 5.223 ; 5.223 ;
+; SW[4]      ; HEX_out[3]  ; 5.240 ; 5.240 ; 5.240 ; 5.240 ;
+; SW[4]      ; HEX_out[4]  ; 5.123 ; 5.123 ; 5.123 ; 5.123 ;
+; SW[4]      ; HEX_out[6]  ; 5.123 ; 5.123 ; 5.123 ; 5.123 ;
+; SW[4]      ; LEDG        ; 3.592 ; 3.592 ; 3.592 ; 3.592 ;
+; SW[4]      ; LEDR[4]     ; 3.510 ;       ;       ; 3.510 ;
+; SW[5]      ; HEX_out[0]  ; 5.677 ; 5.677 ; 5.677 ; 5.677 ;
+; SW[5]      ; HEX_out[3]  ; 5.694 ; 5.694 ; 5.694 ; 5.694 ;
+; SW[5]      ; HEX_out[4]  ; 5.577 ; 5.577 ; 5.577 ; 5.577 ;
+; SW[5]      ; HEX_out[6]  ; 5.577 ; 5.577 ; 5.577 ; 5.577 ;
+; SW[5]      ; LEDG        ; 4.046 ; 4.046 ; 4.046 ; 4.046 ;
+; SW[5]      ; LEDR[5]     ; 3.588 ;       ;       ; 3.588 ;
+; SW[6]      ; HEX_out[0]  ; 5.545 ; 5.545 ; 5.545 ; 5.545 ;
+; SW[6]      ; HEX_out[3]  ; 5.562 ; 5.562 ; 5.562 ; 5.562 ;
+; SW[6]      ; HEX_out[4]  ; 5.445 ; 5.445 ; 5.445 ; 5.445 ;
+; SW[6]      ; HEX_out[6]  ; 5.445 ; 5.445 ; 5.445 ; 5.445 ;
+; SW[6]      ; LEDG        ; 3.914 ; 3.914 ; 3.914 ; 3.914 ;
+; SW[6]      ; LEDR[6]     ; 3.461 ;       ;       ; 3.461 ;
+; SW[7]      ; HEX_out[0]  ; 5.986 ; 5.873 ; 5.873 ; 5.986 ;
+; SW[7]      ; HEX_out[3]  ; 5.890 ; 6.003 ; 6.003 ; 5.890 ;
+; SW[7]      ; HEX_out[4]  ; 5.886 ; 5.773 ; 5.773 ; 5.886 ;
+; SW[7]      ; HEX_out[6]  ; 5.773 ; 5.886 ; 5.886 ; 5.773 ;
+; SW[7]      ; LEDG        ; 4.355 ; 4.242 ; 4.242 ; 4.355 ;
+; SW[7]      ; LEDR[7]     ; 3.744 ;       ;       ; 3.744 ;
+; SW[8]      ; HEX_out[0]  ; 5.741 ; 5.741 ; 5.741 ; 5.741 ;
+; SW[8]      ; HEX_out[3]  ; 5.758 ; 5.758 ; 5.758 ; 5.758 ;
+; SW[8]      ; HEX_out[4]  ; 5.641 ; 5.641 ; 5.641 ; 5.641 ;
+; SW[8]      ; HEX_out[6]  ; 5.641 ; 5.641 ; 5.641 ; 5.641 ;
+; SW[8]      ; LEDG        ; 4.110 ; 4.110 ; 4.110 ; 4.110 ;
+; SW[8]      ; LEDR[8]     ; 3.423 ;       ;       ; 3.423 ;
+; SW[9]      ; HEX_out[0]  ; 5.103 ; 5.562 ; 5.562 ; 5.103 ;
+; SW[9]      ; HEX_out[3]  ; 5.579 ; 5.120 ; 5.120 ; 5.579 ;
+; SW[9]      ; HEX_out[4]  ; 5.003 ; 5.462 ; 5.462 ; 5.003 ;
+; SW[9]      ; HEX_out[6]  ; 5.462 ; 5.003 ; 5.003 ; 5.462 ;
+; SW[9]      ; LEDG        ; 3.472 ; 3.931 ; 3.931 ; 3.472 ;
+; SW[9]      ; LEDR[9]     ; 3.508 ;       ;       ; 3.508 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++--------------------------------------------------------------------+
+; Setup Transfers                                                    ;
++------------+-----------+----------+----------+----------+----------+
+; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+-----------+----------+----------+----------+----------+
+; push_butt  ; push_butt ; 0        ; 0        ; 0        ; 113      ;
++------------+-----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++--------------------------------------------------------------------+
+; Hold Transfers                                                     ;
++------------+-----------+----------+----------+----------+----------+
+; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+-----------+----------+----------+----------+----------+
+; push_butt  ; push_butt ; 0        ; 0        ; 0        ; 113      ;
++------------+-----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 11    ; 11   ;
+; Unconstrained Input Port Paths  ; 81    ; 81   ;
+; Unconstrained Output Ports      ; 18    ; 18   ;
+; Unconstrained Output Port Paths ; 83    ; 83   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Sun May 11 13:49:41 2014
+Info: Command: quartus_sta test -c test
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'test.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name push_butt push_butt
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.459
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.459       -46.698 push_butt 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.445         0.000 push_butt 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.469
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.469       -52.793 push_butt 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.033
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.033        -0.330 push_butt 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 push_butt 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.222
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.222       -43.222 push_butt 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 384 megabytes
+    Info: Processing ended: Sun May 11 13:49:42 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
